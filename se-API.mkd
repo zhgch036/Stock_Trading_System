@@ -1,0 +1,15 @@
+# API
+
+## **Information Release**
+
+### getStockName / getStockID
+
+```
+string getStockName(string ID)
+string getStockID(string name)
+```
+These two function is to help users to transform between strock name and ID. It receives:
+- ID: the stock ID for query
+- name: the stock name for query
+
+and returns the corresponding stock name and ID.
