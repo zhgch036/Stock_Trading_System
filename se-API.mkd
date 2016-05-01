@@ -2,6 +2,8 @@
 
 ## **Information Release**
 
+This modules is to manage the dynamic information for each stock and update the data in the memory real-time from the Central Transaction System modules for every 5 seconds. Besides it can provide the chart data for the Renderer part which programed in JavaScript.
+
 ### getStockName / getStockID
 
 ```
@@ -13,3 +15,56 @@ These two function is to help users to transform between strock name and ID. It 
 - name: the stock name for query
 
 and returns the corresponding stock name and ID.
+
+
+### SaveStockValue
+
+```
+int SaveStockValue(void)
+```
+This function is to save the statistics of all the stocks to the log file. It returns 1 while save successfully and returns 0 as failing.
+
+### getStatistics
+
+```
+struct statistics getStatistics(name)
+struct statistics getStatistics(ID)
+```
+This function is to obtain the dynamic data for the stock that the user want to consult. It receives name or ID as parameter:
+- ID: the stock ID for query
+- name: the stock name for query
+
+and returns the statistics structure for ```Renderer``` to show.
+
+### updateData
+
+```
+int updateData(void)
+```
+This function is to update the real-time data for each stock for every 5 seconds so that the user can see the dynamic  chart in visualization. It returns 1 if update successfully and 0 when fails.
+
+## **Renderer**
+
+This modules is programed in JavaScript that it will be called when the html is loaded. Its main function is to render the chart in visualization so that the user can get more details information from the website.
+
+### render
+
+```
+void render(void)
+```
+This function is to render the chart for the user according to the present data structure in the memory, which can be set by users. It may update dynamically.
+
+### setmode
+
+```
+void setmode(int type)
+```
+This function is enable user to change the mode of the chart, including showing the Candlestick charts for day, month or year. It receives:
+- type: decides which mode of chart to render.
+
+### updateTable
+
+```
+void updateTable()
+```
+This function is to update the data table so that it can renew the chart. It will visit the server synchronized and obtain new present information of the stock.
