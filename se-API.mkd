@@ -2,9 +2,36 @@
 
 ## **PossessedStockInfo**
 
-## **CapitalAccount**
+## **Secuirty/Capital account**
+
+### AccountInfo
+
+```
+string getAccountID()
+string getAccountPassword(string ID)
+```
+This function is to get the capital account information, so that users can modify the password in the client and query the basic information of the account.
+
+### ManagerInfo
+
+```
+string getManagerID()
+string getManagerPassword()
+```
+This function is to obtain the basic login information of the administration, so that the admin can login, and then release or modify the basic information of the stock.
+
+### UserInfo
+
+```
+string getUserID()
+string getUserPassword()
+```
+This function is obtain the basic login information of the user, in order the the user can login in the client.
 
 ## **CentralTransactionSystem**
+
+
+
 
 
 
@@ -76,29 +103,3 @@ This function is enable user to change the mode of the chart, including showing 
 void updateTable()
 ```
 This function is to update the data table so that it can renew the chart. It will visit the server synchronized and obtain new present information of the stock.
-
-## **secuirty/capital account**
-
-### AccountInfo
-
-```
-string getAccountID()
-string getAccountPassword(string ID)
-```
-This function is to get the capital account information, so that users can modify the password in the client and query the basic information of the account.
-
-### ManagerInfo
-
-```
-string getManagerID()
-string getManagerPassword()
-```
-This function is to obtain the basic login information of the administration, so that the admin can login, and then release or modify the basic information of the stock.
-
-### UserInfo
-
-```
-string getUserID()
-string getUserPassword()
-```
-This function is obtain the basic login information of the user, in order the the user can login in the client.
