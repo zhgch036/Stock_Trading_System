@@ -71,6 +71,41 @@ This function is used to recall uncompleted transaction records that day.
 
 and returns the result of recall: 0 means no error, 1 means transaction done, 2 means stock market closing.
 
+### StockTransactionStatus
+
+```
+int getStockTransactionStatus(string stock_id)
+```
+This function is used to know the transactions' status of one specified stock.
+- stock_id: The id of the stock
+
+and returns the result of the transactions' status:
+- 0: Normal
+- 1: Frozen
+- 2: Error(Wrong ID)
+
+```
+int freezeStockTransaction(string stock_id)
+```
+This function is used to freeze the transactions of one specified stock.
+- stock_id: The id of the stock
+
+and return the result after the operation:
+- 0: succeeded
+- 1: failed: the stock is frozen
+- 2: error: wrong stock_id
+
+```
+bool resumeStockTransaction(string stock_id)
+```
+This function is used to resume the frozen transactions of one specified stock.
+- stock_id: The id of the stock
+
+and return the result after the operation:
+- 0: succeeded
+- 1: failed: the stock status is normal
+- 2: error: wrong stock_id
+
 ## **Information Release(Example)**
 
 This modules is to manage the dynamic information for each stock and update the data in the memory real-time from the Central Transaction System modules for every 5 seconds. Besides it can provide the chart data for the Renderer part which programed in JavaScript.
