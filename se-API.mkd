@@ -37,7 +37,39 @@ hashtable getRealTimeData(void)
 ```
 This function is to provide the dynamic data of all the stocks from Central Transaction System to the Information Publishing System. It returns a hashtable that contain all the real-time data of each stock of which the key value is the ID of the stock.
 
+### TransactionCommand
 
+```
+int transactionCommand(string account_id, string security_id, string stock_code, int transaction_type, float submit_price, int submit_quantity)
+```
+This function is a trading instruction for the purchase and sale of the central trading system to issue a request
+- account_id:	The capital account ID of the user want to transaction
+- security_id:	The security account ID of the user want to transaction
+- stock_code:	The code of the stock user want to buy or sell
+- transaction_type:	Type of purchase or sale. 0 means buy, 1 means sell
+- submit_price:	The price of stock that user submits
+- submit_quantity:	The quantity of the stocks that user wants to buy or sell
+
+and returns the result of the instruction, 0 means succeed in resting order, 1 means the price is not available, 2 means the market closed, 3 means the money is not enough when buying, -1 means other problems.
+
+### TransactionRecord
+
+```
+array getTransactionRecord(string account_id, date inquired_date)
+```
+This function is used to get transaction records of the user that day.
+- inquired_date:	The date of the inquired transaction record.
+- accout_id:	capital account id
+
+and returns the array of record_id, transaction_dates, transaction_type, stock_id, stock_name, unit_prices, shares, the state of the record.
+
+```
+int recallTransaction(int record_id)
+```
+This function is used to recall uncompleted transaction records that day.
+- record_id:	The id of transaction record
+
+and returns the result of recall: 0 means no error, 1 means transaction done, 2 means stock market closing.
 
 ## **Information Release(Example)**
 
