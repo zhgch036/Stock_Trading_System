@@ -30,8 +30,12 @@ This function is obtain the basic login information of the user, in order the th
 
 ## **CentralTransactionSystem**
 
+### getRealTimeData
 
-
+```
+hashtable getRealTimeData(void)
+```
+This function is to provide the dynamic data of all the stocks from Central Transaction System to the Information Publishing System. It returns a hashtable that contain all the real-time data of each stock of which the key value is the ID of the stock.
 
 
 
