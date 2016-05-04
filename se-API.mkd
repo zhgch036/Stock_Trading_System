@@ -106,6 +106,29 @@ and return the result after the operation:
 - 1: failed: the stock status is normal
 - 2: error: wrong stock_id
 
+### ManagedStocksInfo
+
+```
+array getManagedStocksInfo(array managedStocks)
+```
+This function is used to know real-time information(price / transaction volume / change rate) of all stocks which are managed by one manager.
+- manageStocks: an array including all managed stocks' id.
+
+and return an array as result. Each item in the array should have three attributes:
+- price
+- volume
+- change
+
+### StockOrders
+```
+array getStockOrders(string stock_id)
+```
+This function is used to know the undone orders of one specified stock, Not history record but today's transactions orders.
+- stock_id: the id of one specified stock
+
+and return an array as result. The first item is an array including all purchase orders, and the second is also an array including all selling orders.
+
+
 ## **Information Release(Example)**
 
 This modules is to manage the dynamic information for each stock and update the data in the memory real-time from the Central Transaction System modules for every 5 seconds. Besides it can provide the chart data for the Renderer part which programed in JavaScript.
