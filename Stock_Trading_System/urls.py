@@ -20,7 +20,7 @@ from django.contrib import admin
 from Transaction_Client import views as Transaction_Client_views
 
 urlpatterns = [
-    url(r'^$', 'login.views.index', name='login'),
+    # url(r'^$', 'login.views.index', name='login'),
     #example
     url(r'^admin/', admin.site.urls),
     #Transaction Client
